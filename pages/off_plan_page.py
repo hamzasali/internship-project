@@ -7,6 +7,7 @@ from pages.base_page import Page
 
 class OffPlanPage(Page):
     OFF_PLAN_TXT = (By.XPATH, "//a[contains(text(),'Off-plan')]")
+    TOTAL_TXT = (By.XPATH, "//div[contains(text(),'Total project')]")
     FILTER_BTN = (By.CSS_SELECTOR, ".filter-button.w-inline-block")
     MIN_BOX = (By.CSS_SELECTOR, "[wized='unitPriceFromFilter']")
     MAX_BOX = (By.CSS_SELECTOR, "[wized='unitPriceToFilter']")
@@ -16,10 +17,10 @@ class OffPlanPage(Page):
     def verify_right_page(self):
         self.verify_partial_url('off-plan')
         self.wait_until_visible(*self.OFF_PLAN_TXT)
-        sleep(2)
+        self.wait_until_visible(*self.TOTAL_TXT)
 
     def filter_by_price_range(self, min, max):
-        self.click(*self.FILTER_BTN)
+        self.wait_until_clickable_click(*self.FILTER_BTN)
         self.input_text(min, *self.MIN_BOX)
         self.input_text(max, *self.MAX_BOX)
         self.click(*self.APPLY_FILTER_BTN)

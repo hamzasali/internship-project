@@ -18,7 +18,7 @@ def click_off_plan(context):
 
 @then("Verify the right page opens")
 def verify_right_page(context):
-    context.app.main_page.verify_right_page()
+    context.app.off_plan_page.verify_right_page()
 
 
 @when("Filter the products by price range from {min} to {max} AED")
