@@ -1,7 +1,7 @@
 Feature: Reelly User can filter tests
 
   Scenario: User can filter the off plan products by Unit price range
-    Given Open the main page https://soft.reelly.io
+    Given Open the main page
     When Log in to the page
     And Click on off plan at the left side menu
     Then Verify the right page opens
