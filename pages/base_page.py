@@ -9,7 +9,7 @@ class Page:
     def __init__(self, driver):
         self.driver = driver
         self.base_url = 'https://soft.reelly.io'
-        self.wait = WebDriverWait(self.driver, 10)
+        self.wait = WebDriverWait(self.driver, 15)
 
     def open_url(self, url):
         logger.info(f'Opening url {url}')

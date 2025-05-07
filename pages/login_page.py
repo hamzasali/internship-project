@@ -7,6 +7,7 @@ class LogInPage(Page):
     EMAIL_BOX = (By.ID, 'email-2')
     PASSWORD_BOX = (By.CSS_SELECTOR, "#field[type='password']")
     LOGIN_BTN = (By.CSS_SELECTOR, "[wized='loginButton']")
+    SETTING_BTN = (By.CSS_SELECTOR, ".settings-code.w-embed")
 
     def login(self):
         email = self.find_element(*self.EMAIL_BOX)
@@ -14,3 +15,4 @@ class LogInPage(Page):
         password = self.find_element(*self.PASSWORD_BOX)
         password.send_keys('*****') #enter password
         self.click(*self.LOGIN_BTN)
+        self.wait_until_visible(*self.SETTING_BTN)
